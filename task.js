@@ -12,9 +12,21 @@ Object.defineProperty(task,'toString',{
     },
     writable:false,
     enumerable:false,
-    configurable:true
+    configurable:false
 });
 task.title = "My task";
 task.description = "My Description";
 
-console.log(Object.keys(task));
+var urgentTask = Object.create(task);
+
+Object.defineProperty(urgentTask,'toString',{
+    value:function(){
+        return this.title + ' '+'is urgent';
+    },
+    writable:false,
+    enumerable:false,
+    configurable:false
+});
+
+
+console.log(urgentTask.toString());
