@@ -5,12 +5,16 @@ var task2 = {
     descript: 'another description'
 };
 
+
+Object.defineProperty(task,'toString',{
+    value:function(){
+        return this.title + ' '+this.description;
+    },
+    writable:false,
+    enumerable:false,
+    configurable:true
+});
 task.title = "My task";
 task.description = "My Description";
-task.toString = function(){
-    return this.title + ' '+this.description;
-};
 
-
-
-console.log(task.toString());
+console.log(Object.keys(task));
